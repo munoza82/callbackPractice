@@ -23,8 +23,11 @@ and what you should write is the sayHi function that makes the code above work,
 */
 
 
-
-  //Code Here for first
+var first = function(names, callBackFn) {
+    for (var i = 0; i < names.length; i++){
+      callBackFn(names[i]);
+    }
+}
   
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
@@ -37,9 +40,11 @@ first(names, function(firstName){
 /* NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM */
 
 
-
-
-  //Code Here for last
+function last(names, cbFn){
+    for (var i = 0; i < names.length; i++){
+        cbFn(names[i]);
+    }
+}
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 last(names, function(lastName){
@@ -52,13 +57,10 @@ last(names, function(lastName){
 
 /* NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM */
 
-
-
-
-
-
-  //Code Here for multiply
-
+function multiply(num1, num2, cbFn){
+    var result = num1 * num2;
+    cbFn(result);
+}
 multiply(4, 3, function(answer){
   console.log('The answer is ' + answer); //should console.log 12
 })
@@ -70,10 +72,13 @@ multiply(4, 3, function(answer){
 /* NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM */
 
 
-
-
-
-  //Code Here for contains
+function contains(names, singleName, cbFn){
+    var result = false;
+    if (names.indexOf(singleName) !== -1){
+        result = true; 
+    }
+    cbFn(result);
+}
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 contains(names, 'Colt', function(result){
@@ -90,10 +95,15 @@ contains(names, 'Colt', function(result){
 
 /* NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM */
 
-
-
-
-    //Code Here for uniq
+function uniq(names, cbFn){
+    var uniqArr = [];
+    for (var i = 0; i < names.length; i++){
+        if (names.indexOf(names[i]) !== -1){
+            uniqArr.push(names[i]);
+        }
+    }
+    cbFn(uniqArr);
+}
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 uniq(names, function(uniqArr){
