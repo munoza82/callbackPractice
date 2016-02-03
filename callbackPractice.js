@@ -96,11 +96,13 @@ contains(names, 'Colt', function(result){
 /* NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM */
 
 function uniq(names, cbFn){
+    var uniqObj = {};
     var uniqArr = [];
-    for (var i = 0; i < names.length; i++){
-        if (names.indexOf(names[i]) !== -1){
-            uniqArr.push(names[i]);
-        }
+    names.forEach(function(e){ // now I have an object call uniqObj with each name as a key, keys cannot duplicate, so you only get one each
+        uniqObj[e] = null;
+    })
+    for (var key in uniqObj){
+        uniqArr.push(key);
     }
     cbFn(uniqArr);
 }
@@ -116,10 +118,11 @@ uniq(names, function(uniqArr){
 
 /* NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM */
 
-
-
-
-    //Code Here for each
+function each(names, cbFn) {
+  names.forEach(function(item, indice) {
+    cbFn(item, indice);
+  });
+}
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 each(names, function(item, indice){
@@ -131,12 +134,17 @@ each(names, function(item, indice){
 
 
 /* NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM */
+function getUserById(arr, str, cb) {  //will need to return an object 
+    var correctObj = {}; 
+    arr.forEach(function(item){ 
+    if(item.id === str) { 
+             correctObj = item; 
+         } 
+     }); 
+     cb(correctObj); 
+}; 
 
 
-
-
-
- //code here for getUserById
 
 var users = [
   {
